@@ -83,7 +83,7 @@ public extension Flow {
             envelopeSignatures = value.envelopeSignatures.compactMap { TransactionSignature(value: $0) }
         }
 
-        func toFlowEntity() -> Flow_Entities_Transaction {
+        public func toFlowEntity() -> Flow_Entities_Transaction {
             var transaction = Flow_Entities_Transaction()
             transaction.script = script.bytes.data
             transaction.arguments = arguments.compactMap { try? JSONEncoder().encode($0) }
